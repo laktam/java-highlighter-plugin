@@ -9,6 +9,11 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 import javax.swing.text.StyledDocument;
 
+import org.mql.jcodeeditor.highlighting.Highlighter;
+import org.mql.jcodeeditor.highlighting.Token;
+import org.mql.jcodeeditor.highlighting.TokenType;
+import org.mql.jcodeeditor.highlighting.Tokenizer;
+
 public class JavaHighlighter implements Highlighter {
 	private Tokenizer tokenizer;
 	private StyledDocument doc;

@@ -4,6 +4,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import org.mql.jcodeeditor.highlighting.Highlighter;
+
 
 
 public class DocumentChangeListener implements DocumentListener {

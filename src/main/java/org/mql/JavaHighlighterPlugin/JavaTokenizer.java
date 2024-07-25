@@ -7,6 +7,10 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.mql.jcodeeditor.highlighting.Token;
+import org.mql.jcodeeditor.highlighting.TokenType;
+import org.mql.jcodeeditor.highlighting.Tokenizer;
+
 public class JavaTokenizer implements Tokenizer{
 	private String keywordsRegEx;
 	private String commentsRegEx;
