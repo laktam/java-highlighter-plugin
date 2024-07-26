@@ -31,12 +31,7 @@ public class JavaHighlighter implements Highlighter {
 	private Color keywordColor = new Color(127, 0, 85);
 	private Color numberColor = new Color(127, 0, 85);
 
-	public JavaHighlighter() {
-		
-
-//		highlight(); 
-
-	}
+	public JavaHighlighter() {}
 
 	@Override
 	public void highlight() {
@@ -74,25 +69,20 @@ public class JavaHighlighter implements Highlighter {
 		this.doc = d;
 		defaultStyle = StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE);
 
-//		keywordStyle = StyleContext.getDefaultStyleContext().addStyle(null, null);
 		keywordStyle = doc.addStyle("KeywordStyle", defaultStyle);
 		StyleConstants.setForeground(keywordStyle, keywordColor);
 		StyleConstants.setBold(keywordStyle, true);
 
 		
-//		numberStyle = StyleContext.getDefaultStyleContext().addStyle(null, null);
 		numberStyle = doc.addStyle("NumbersStyle", defaultStyle);
 		StyleConstants.setForeground(numberStyle, numberColor);
 
-//		identifierStyle  = StyleContext.getDefaultStyleContext().addStyle(null, null);
 		identifierStyle = doc.addStyle("Iden	tifier", defaultStyle);
 		StyleConstants.setForeground(identifierStyle, identifierColor);
 
-//		commentStyle  = StyleContext.getDefaultStyleContext().addStyle(null, null);
 		commentStyle = doc.addStyle("CommentsStyle", defaultStyle);
 		StyleConstants.setForeground(commentStyle, commentColor);
 
-//		stringStyle  = StyleContext.getDefaultStyleContext().addStyle(null, null);
 		stringStyle = doc.addStyle("stringStyle", defaultStyle);
 		StyleConstants.setForeground(stringStyle, stringColor);
 		this.doc.addDocumentListener(new DocumentChangeListener(this));

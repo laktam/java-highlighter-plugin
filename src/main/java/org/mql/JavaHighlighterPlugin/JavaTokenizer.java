@@ -117,6 +117,6 @@ public class JavaTokenizer implements Tokenizer{
 
 	@Override
 	public String getTargetExtension() {
-		return ".java";
+		return "java";
 	}
 }
