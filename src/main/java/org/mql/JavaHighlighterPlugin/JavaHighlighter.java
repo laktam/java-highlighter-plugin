@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.List;
 
 import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
@@ -30,30 +31,10 @@ public class JavaHighlighter implements Highlighter {
 	private Color keywordColor = new Color(127, 0, 85);
 	private Color numberColor = new Color(127, 0, 85);
 
-	public JavaHighlighter(Tokenizer tokenizer, StyledDocument doc) {
-		this.tokenizer = tokenizer;
-		this.doc = doc;
-
-		defaultStyle = StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE);
-
-		keywordStyle = doc.addStyle("KeywordStyle", defaultStyle);
-		StyleConstants.setForeground(keywordStyle, keywordColor);
-		StyleConstants.setBold(keywordStyle, true);
-
-		numberStyle = doc.addStyle("NumbersStyle", defaultStyle);
-		StyleConstants.setForeground(numberStyle, numberColor);
-
-		identifierStyle = doc.addStyle("Identifier", defaultStyle);
-		StyleConstants.setForeground(identifierStyle, identifierColor);
-
-		commentStyle = doc.addStyle("CommentsStyle", defaultStyle);
-		StyleConstants.setForeground(commentStyle, commentColor);
-
-		stringStyle = doc.addStyle("stringStyle", defaultStyle);
-		StyleConstants.setForeground(stringStyle, stringColor);
+	public JavaHighlighter() {
+		
 
 //		highlight(); 
-		doc.addDocumentListener(new DocumentChangeListener(this));
 
 	}
 
@@ -81,5 +62,39 @@ public class JavaHighlighter implements Highlighter {
 				doc.setCharacterAttributes(token.getStart(), token.getSize(), stringStyle, true);
 			}
 		}
+	}
+
+	@Override
+	public void setTokenizer(Tokenizer tokenizer) {
+		this.tokenizer = tokenizer;
+	}
+
+	@Override
+	public void setDocument(StyledDocument d) {
+		this.doc = d;
+		defaultStyle = StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE);
+
+//		keywordStyle = StyleContext.getDefaultStyleContext().addStyle(null, null);
+		keywordStyle = doc.addStyle("KeywordStyle", defaultStyle);
+		StyleConstants.setForeground(keywordStyle, keywordColor);
+		StyleConstants.setBold(keywordStyle, true);
+
+		
+//		numberStyle = StyleContext.getDefaultStyleContext().addStyle(null, null);
+		numberStyle = doc.addStyle("NumbersStyle", defaultStyle);
+		StyleConstants.setForeground(numberStyle, numberColor);
+
+//		identifierStyle  = StyleContext.getDefaultStyleContext().addStyle(null, null);
+		identifierStyle = doc.addStyle("Iden	tifier", defaultStyle);
+		StyleConstants.setForeground(identifierStyle, identifierColor);
+
+//		commentStyle  = StyleContext.getDefaultStyleContext().addStyle(null, null);
+		commentStyle = doc.addStyle("CommentsStyle", defaultStyle);
+		StyleConstants.setForeground(commentStyle, commentColor);
+
+//		stringStyle  = StyleContext.getDefaultStyleContext().addStyle(null, null);
+		stringStyle = doc.addStyle("stringStyle", defaultStyle);
+		StyleConstants.setForeground(stringStyle, stringColor);
+		this.doc.addDocumentListener(new DocumentChangeListener(this));
 	}
 }
