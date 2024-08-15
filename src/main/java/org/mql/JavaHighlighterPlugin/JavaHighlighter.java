@@ -14,8 +14,9 @@ import org.mql.jcodeeditor.highlighting.Highlighter;
 import org.mql.jcodeeditor.highlighting.Token;
 import org.mql.jcodeeditor.highlighting.TokenType;
 import org.mql.jcodeeditor.highlighting.Tokenizer;
+import org.mql.jcodeeditor.plugins.Plugin;
 
-public class JavaHighlighter implements Highlighter {
+public class JavaHighlighter implements Highlighter, Plugin {
 	private Tokenizer tokenizer;
 	private StyledDocument doc;
 	private Style keywordStyle;
@@ -25,16 +26,23 @@ public class JavaHighlighter implements Highlighter {
 	private Style commentStyle;
 	private Style stringStyle;
 
+	private boolean isActive;
+
 	private Color commentColor = new Color(63, 127, 95);
 	private Color identifierColor = new Color(143, 86, 4);
 	private Color stringColor = new Color(42, 0, 255);
 	private Color keywordColor = new Color(127, 0, 85);
 	private Color numberColor = new Color(127, 0, 85);
 
-	public JavaHighlighter() {}
+	public JavaHighlighter() {
+		isActive = true;
+	}
 
 	@Override
 	public void highlight() {
+		if (!isActive) {
+			return;
+		}
 		String code = "";
 		try {
 			code = doc.getText(0, doc.getLength());
@@ -73,7 +81,6 @@ public class JavaHighlighter implements Highlighter {
 		StyleConstants.setForeground(keywordStyle, keywordColor);
 		StyleConstants.setBold(keywordStyle, true);
 
-		
 		numberStyle = doc.addStyle("NumbersStyle", defaultStyle);
 		StyleConstants.setForeground(numberStyle, numberColor);
 
@@ -86,5 +93,35 @@ public class JavaHighlighter implements Highlighter {
 		stringStyle = doc.addStyle("stringStyle", defaultStyle);
 		StyleConstants.setForeground(stringStyle, stringColor);
 		this.doc.addDocumentListener(new DocumentChangeListener(this));
+	}
+
+	@Override
+	public String getTargetExtension() {
+		return "java";
+	}
+
+	@Override
+	public String getName() {
+		return "Java Highlighter";
+	}
+
+	@Override
+	public String getDescription() {
+		return "";
+	}
+
+	@Override
+	public void activate() {
+		isActive = true;
+	}
+
+	@Override
+	public void deactivate() {
+		isActive = true;
+	}
+
+	@Override
+	public boolean isActive() {
+		return isActive;
 	}
 }
