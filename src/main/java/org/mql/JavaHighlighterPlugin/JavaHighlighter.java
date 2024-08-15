@@ -15,6 +15,7 @@ import org.mql.jcodeeditor.highlighting.Token;
 import org.mql.jcodeeditor.highlighting.TokenType;
 import org.mql.jcodeeditor.highlighting.Tokenizer;
 import org.mql.jcodeeditor.plugins.Plugin;
+import org.mql.jcodeeditor.properties.PropertiesManager;
 
 public class JavaHighlighter implements Highlighter, Plugin {
 	private Tokenizer tokenizer;
@@ -35,7 +36,14 @@ public class JavaHighlighter implements Highlighter, Plugin {
 	private Color numberColor = new Color(127, 0, 85);
 
 	public JavaHighlighter() {
-		isActive = true;
+		String stateFromFile = PropertiesManager.readProperty("plugins." + getName() + ".status");
+		if("true".equals(stateFromFile)) {
+			isActive = true;
+		}else if("false".equals(stateFromFile)) {
+			isActive = false;
+		}else {
+			isActive = true;
+		}
 	}
 
 	@Override
