@@ -117,7 +117,7 @@ public class JavaHighlighter implements Highlighter, Plugin {
 
 	@Override
 	public void deactivate() {
-		isActive = true;
+		isActive = false;
 	}
 
 	@Override
