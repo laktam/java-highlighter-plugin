@@ -36,14 +36,7 @@ public class JavaHighlighter implements Highlighter, Plugin {
 	private Color numberColor = new Color(127, 0, 85);
 
 	public JavaHighlighter() {
-		String stateFromFile = PropertiesManager.readProperty("plugins." + getName() + ".status");
-		if("true".equals(stateFromFile)) {
-			isActive = true;
-		}else if("false".equals(stateFromFile)) {
-			isActive = false;
-		}else {
-			isActive = true;
-		}
+		isActive = true;
 	}
 
 	@Override
