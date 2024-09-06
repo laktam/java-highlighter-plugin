@@ -1,5 +1,5 @@
 # Java Highlighter Plugin
-This plugin provides syntax highlighting support for Java files in the JCodeEditor. It highlights Java keywords, identifiers, comments, strings, and other tokens, making code easier to read and understand. The highlighting is dynamic, meaning it updates in real-time as the user edits the document. 
+This plugin provides syntax highlighting support for Java files in the [JCodeEditor](https://github.com/laktam/JCodeEditor) . It highlights Java keywords, identifiers, comments, strings, and other tokens, making code easier to read and understand. The highlighting is dynamic, meaning it updates in real-time as the user edits the document. 
 ## Features 
 - Keywords, comments, strings, identifiers, and numbers are highlighted in distinct colors.
 - Real-time updates ensure dynamic reanalysis and highlighting as you type.
@@ -8,7 +8,7 @@ This plugin provides syntax highlighting support for Java files in the JCodeEdit
 2. Build the plugin and add the resulting `.jar` file to the `plugins` folder of the JCodeEditor installation. 
 3. Restart JCodeEditor, and the Java Highlighter plugin will be automatically detected and enabled.
 ## Usage 
-1. Open a Java file (`.java`) in JCodeEditor.
+1. Open a Java file (`.java`) in [JCodeEditor](https://github.com/laktam/JCodeEditor).
 2. The syntax highlighting will automatically activate for Java files.
 3. As you edit the file, the plugin will dynamically highlight your code in real-time.
 ## Development 
