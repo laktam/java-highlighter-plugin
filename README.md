@@ -24,3 +24,7 @@ The following token types are recognized by the tokenizer:
    - `STRING`
    - `NUMBER`
    - `OPERATOR`
+   
+ ## Example
+ 
+ ![example](./screenshots/1.png)
